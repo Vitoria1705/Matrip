@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhe da Reserva | Matrip</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../../css/cliente/detalhe-reserva.css" />
+</head>
+<body>
+  <div class="cliente-page">
+    <!-- Topbar padrão da área do cliente -->
+    <header class="cliente-topbar">
+      <div class="cliente-topbar__container">
+        <a href="../../index.html" class="cliente-brand" aria-label="Voltar para a home da Matrip">
+          <img
+            src="../../logo-matrip-oficial-01.png"
+            alt="Logo Matrip"
+            class="cliente-brand__logo"
+          />
+
+          <span class="cliente-brand__divider"></span>
+          <span class="cliente-brand__slogan">Seu guia de experiências turísticas</span>
+        </a>
+
+        <div class="cliente-topbar__actions">
+          <button type="button" class="topbar-lang" aria-label="Idioma atual">
+            <img src="https://flagcdn.com/w40/br.png" alt="Português do Brasil" />
+          </button>
+
+          <span class="topbar-separator" aria-hidden="true"></span>
+
+          <!-- Esta tela faz parte do fluxo de reservas -->
+          <a href="index.html" class="topbar-account">Início</a>
+          <a href="perfil.html" class="topbar-account">Perfil</a>
+          <a href="reservas.html" class="topbar-account topbar-account--active">Reservas</a>
+          <a href="favoritos.html" class="topbar-account">Favoritos</a>
+          <a href="suporte.html" class="topbar-account">Suporte</a>
+
+          <!-- Encerramento da sessão local -->
+          <button type="button" class="topbar-account topbar-account--logout" id="btnLogout">
+            Sair
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="cliente-main">
+      <!-- Cabeçalho da página -->
+      <section class="detalhe-header">
+        <div class="detalhe-header__content">
+          <a href="reservas.html" class="detalhe-back">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Voltar para reservas</span>
+          </a>
+
+          <div class="detalhe-header__badge">
+            <i class="fa-solid fa-ticket"></i>
+            <span>Detalhe da reserva</span>
+          </div>
+
+          <h1 id="tituloReserva">Reserva</h1>
+          <p id="subtituloReserva">Carregando informações da reserva.</p>
+        </div>
+      </section>
+
+      <!-- Conteúdo principal da reserva -->
+      <section class="detalhe-layout hidden" id="detalheLayout">
+        <article class="detalhe-card detalhe-card--hero">
+          <div class="detalhe-hero">
+            <!-- Imagem principal -->
+            <div class="detalhe-hero__image" id="imagemReserva"></div>
+
+            <div class="detalhe-hero__body">
+              <div class="detalhe-hero__top">
+                <div>
+                  <h2 id="nomePasseio">Passeio</h2>
+                  <p id="localPasseio" class="detalhe-muted">Local</p>
+                </div>
+
+                <div class="detalhe-status-group">
+                  <span id="statusReserva" class="status-badge">Status</span>
+                  <span id="statusPagamento" class="payment-badge">Pagamento</span>
+                </div>
+              </div>
+
+              <p id="descricaoPasseio" class="detalhe-description"></p>
+
+              <!-- Resumo rápido -->
+              <div class="detalhe-meta-grid">
+                <div class="meta-item">
+                  <i class="fa-regular fa-calendar"></i>
+                  <div>
+                    <small>Data</small>
+                    <strong id="dataPasseio">-</strong>
+                  </div>
+                </div>
+
+                <div class="meta-item">
+                  <i class="fa-regular fa-clock"></i>
+                  <div>
+                    <small>Horário</small>
+                    <strong id="horarioPasseio">-</strong>
+                  </div>
+                </div>
+
+                <div class="meta-item">
+                  <i class="fa-solid fa-user-group"></i>
+                  <div>
+                    <small>Participantes</small>
+                    <strong id="totalParticipantes">-</strong>
+                  </div>
+                </div>
+
+                <div class="meta-item">
+                  <i class="fa-solid fa-wallet"></i>
+                  <div>
+                    <small>Valor total</small>
+                    <strong id="valorTotal">-</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ações da página -->
+              <div class="detalhe-actions">
+                <a href="#" class="btn-action btn-action--secondary" id="btnAjuda">Suporte</a>
+                <a href="../../index.html" class="btn-action btn-action--primary">Explorar mais passeios</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Informações auxiliares -->
+        <div class="detalhe-grid">
+          <article class="detalhe-card">
+            <div class="section-heading">
+              <h2>Informações da reserva</h2>
+            </div>
+
+            <div class="info-list">
+              <div class="info-row">
+                <span>ID da reserva</span>
+                <strong id="idReserva">-</strong>
+              </div>
+
+              <div class="info-row">
+                <span>Categoria</span>
+                <strong id="categoriaPasseio">-</strong>
+              </div>
+
+              <div class="info-row">
+                <span>Classificação</span>
+                <strong id="classificacaoPasseio">-</strong>
+              </div>
+
+              <div class="info-row">
+                <span>Local</span>
+                <strong id="localCompletoPasseio">-</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="detalhe-card">
+            <div class="section-heading">
+              <h2>Pagamento</h2>
+            </div>
+
+            <div class="info-list">
+              <div class="info-row">
+                <span>Status</span>
+                <strong id="pagamentoStatusTexto">-</strong>
+              </div>
+
+              <div class="info-row">
+                <span>Método</span>
+                <strong id="pagamentoMetodo">-</strong>
+              </div>
+
+              <div class="info-row">
+                <span>Parcelas</span>
+                <strong id="pagamentoParcelas">-</strong>
+              </div>
+
+              <div class="info-row">
+                <span>Transação</span>
+                <strong id="pagamentoTransacao">-</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="detalhe-card">
+            <div class="section-heading">
+              <h2>O que está incluído</h2>
+            </div>
+
+            <ul class="tag-list" id="incluiList"></ul>
+          </article>
+
+          <article class="detalhe-card">
+            <div class="section-heading">
+              <h2>Locais de embarque</h2>
+            </div>
+
+            <ul class="tag-list" id="embarqueList"></ul>
+          </article>
+        </div>
+
+        <!-- Participantes vinculados à reserva -->
+        <article class="detalhe-card">
+          <div class="section-heading">
+            <h2>Participantes</h2>
+          </div>
+
+          <div class="participantes-grid" id="participantesGrid"></div>
+        </article>
+      </section>
+
+      <!-- Fallback quando o id informado não existe -->
+      <section class="empty-state hidden" id="reservaNaoEncontrada">
+        <div class="empty-state__icon">
+          <i class="fa-solid fa-circle-exclamation"></i>
+        </div>
+        <h2>Reserva não encontrada</h2>
+        <p>Não foi possível localizar a reserva informada.</p>
+        <a href="reservas.html" class="btn-action btn-action--primary">Voltar para reservas</a>
+      </section>
+    </main>
+  </div>
+
+  <!-- Ordem importante: dados compartilhados antes da lógica da página -->
+  <script src="../../js/cliente/cliente-data.js"></script>
+  <script src="../../js/cliente/detalhe-reserva.js"></script>
+</body>
+</html>

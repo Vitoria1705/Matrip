@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avaliações | Guia | Matrip</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../../css/guia/layout.css" />
+  <link rel="stylesheet" href="../../css/guia/sidebar.css" />
+  <link rel="stylesheet" href="../../css/guia/avaliacoes.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <header class="partner-brandbar">
+      <div class="partner-brandbar__container">
+        <div class="partner-brandbar__brand">
+          <img
+            src="../../logo-matrip-oficial-01.png"
+            alt="Logo Matrip"
+            class="partner-brandbar__logo"
+          />
+          <span class="partner-brandbar__divider"></span>
+          <span class="partner-brandbar__slogan">Seu guia de experiências turísticas</span>
+        </div>
+
+        <div class="partner-brandbar__actions">
+          <span class="partner-brandbar__panel">Painel do Guia</span>
+          <button type="button" class="partner-brandbar__logout logout-btn">Sair</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-container">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+            &times;
+          </button>
+        </div>
+
+        <nav class="sidebar-menu">
+          <a href="index.html" class="menu-item">
+            <i class="fa-solid fa-house menu-icon"></i>
+            <span>Home</span>
+          </a>
+
+          <a href="meus-passeios.html" class="menu-item">
+            <i class="fa-solid fa-suitcase menu-icon"></i>
+            <span>Meus Passeios</span>
+          </a>
+
+          <a href="agenda.html" class="menu-item">
+            <i class="fa-regular fa-calendar-days menu-icon"></i>
+            <span>Agenda</span>
+          </a>
+
+          <a href="servicos.html" class="menu-item">
+            <i class="fa-regular fa-file-lines menu-icon"></i>
+            <span>Serviços</span>
+          </a>
+
+          <a href="ganhos.html" class="menu-item">
+            <i class="fa-solid fa-wallet menu-icon"></i>
+            <span>Ganhos</span>
+          </a>
+
+          <a href="avaliacoes.html" class="menu-item active">
+            <i class="fa-regular fa-star menu-icon"></i>
+            <span>Avaliações</span>
+          </a>
+
+          <a href="perfil.html" class="menu-item">
+            <i class="fa-regular fa-user menu-icon"></i>
+            <span>Perfil</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="partner-info">
+            <strong>Guia logado</strong>
+            <small id="sidebarGuideEmail">guia@matrip.com</small>
+          </div>
+
+          <button class="logout-btn" type="button">Sair</button>
+        </div>
+      </aside>
+
+      <div class="dashboard-main">
+        <header class="topbar">
+          <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="topbar-title">
+            <h1>Avaliações</h1>
+            <p>Tela visual para exibir reputação, nota média e feedbacks.</p>
+          </div>
+        </header>
+
+        <main class="content">
+          <section class="cards-grid">
+            <div class="info-card">
+              <h3>Nota média</h3>
+              <p class="card-number" id="metricNotaMedia">5,0</p>
+              <span>placeholder visual</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Total de feedbacks</h3>
+              <p class="card-number" id="metricTotalFeedbacks">0</p>
+              <span>registros exibidos</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Elogios</h3>
+              <p class="card-number" id="metricElogios">0</p>
+              <span>itens positivos</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Passeios avaliados</h3>
+              <p class="card-number" id="metricPasseiosAvaliados">0</p>
+              <span>base visual</span>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Feedbacks recentes</h2>
+            </div>
+
+            <div class="avaliacoes-list" id="avaliacoesList"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/guia/sidebar.js"></script>
+  <script src="../../js/guia/avaliacoes.js"></script>
+</body>
+</html>

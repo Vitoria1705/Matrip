@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meus Passeios | Matrip</title>
+
+  <!-- Ícones da sidebar -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../../css/parceiro/layout.css" />
+  <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
+  <link rel="stylesheet" href="../../css/parceiro/meus-passeios.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <!-- Topbar principal da marca -->
+    <header class="partner-brandbar">
+      <div class="partner-brandbar__container">
+        <div class="partner-brandbar__brand">
+          <img
+            src="../../logo-matrip-oficial-01.png"
+            alt="Logo Matrip"
+            class="partner-brandbar__logo"
+          />
+          <span class="partner-brandbar__divider"></span>
+          <span class="partner-brandbar__slogan">Seu guia de experiências turísticas</span>
+        </div>
+
+        <div class="partner-brandbar__actions">
+          <img src="https://flagcdn.com/w40/br.png" alt="Português (BR)" style="height: 20px; border-radius: 3px;" />
+
+          <span class="partner-brandbar__divider" style="height: 24px;"></span>
+
+          <span class="partner-brandbar__panel" style="display: flex; align-items: center; gap: 8px;">
+            <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            Perfil: Parceiro
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-container">
+      <aside class="sidebar" id="sidebar">
+        <!-- Topo da sidebar sem logo -->
+        <div class="sidebar-top">
+          <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+            &times;
+          </button>
+        </div>
+
+        <nav class="sidebar-menu">
+          <a href="index.html" class="menu-item">
+            <i class="fa-solid fa-house menu-icon"></i>
+            <span>Home</span>
+          </a>
+
+          <a href="minha-agencia.html" class="menu-item">
+            <i class="fa-solid fa-building menu-icon"></i>
+            <span>Minha Agência</span>
+          </a>
+
+          <a href="meus-passeios.html" class="menu-item active">
+            <i class="fa-solid fa-suitcase menu-icon"></i>
+            <span>Meus Passeios</span>
+          </a>
+
+          <a href="valores.html" class="menu-item">
+            <i class="fa-regular fa-compass menu-icon"></i>
+            <span>Valores</span>
+          </a>
+
+          <a href="imagens.html" class="menu-item">
+            <i class="fa-regular fa-image menu-icon"></i>
+            <span>Imagens</span>
+          </a>
+
+          <a href="servicos.html" class="menu-item">
+            <i class="fa-regular fa-file-lines menu-icon"></i>
+            <span>Serviços</span>
+          </a>
+
+          <a href="perfil.html" class="menu-item">
+            <i class="fa-regular fa-user menu-icon"></i>
+            <span>Perfil</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="partner-info">
+            <strong>Parceiro logado</strong>
+            <small id="sidebarPartnerEmail">agencia@matrip.com</small>
+          </div>
+
+          <button class="logout-btn" type="button">Sair</button>
+        </div>
+      </aside>
+
+      <div class="dashboard-main">
+        <header class="topbar">
+          <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="topbar-title">
+            <h1>Meus Passeios</h1>
+            <p>Visualize, filtre e acompanhe os passeios cadastrados.</p>
+          </div>
+        </header>
+
+        <main class="content">
+          <section class="panel">
+            <div class="page-actions">
+              <div class="filters">
+                <div class="filter-group">
+                  <label for="filterCategoria">Categoria</label>
+                  <select id="filterCategoria">
+                    <option value="">Todas</option>
+                  </select>
+                </div>
+
+                <div class="filter-group">
+                  <label for="filterCidade">Cidade</label>
+                  <input type="text" id="filterCidade" placeholder="Digite a cidade" />
+                </div>
+
+                <div class="filter-group filter-search">
+                  <label for="searchPasseio">Buscar</label>
+                  <input type="text" id="searchPasseio" placeholder="Nome, local ou descrição" />
+                </div>
+              </div>
+
+              <div class="action-buttons">
+                <button class="secondary-btn" id="clearFiltersBtn" type="button">Limpar filtros</button>
+                <a href="#" class="primary-link-btn">+ Novo passeio</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="cards-grid metrics-grid">
+            <div class="info-card">
+              <h3>Total de passeios</h3>
+              <p class="card-number" id="metricTotal">0</p>
+              <span>registros encontrados</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Categorias</h3>
+              <p class="card-number" id="metricCategorias">0</p>
+              <span>tipos diferentes</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Cidades</h3>
+              <p class="card-number" id="metricCidades">0</p>
+              <span>locais atendidos</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Preço médio</h3>
+              <p class="card-number" id="metricPrecoMedio">R$ 0,00</p>
+              <span>valor final médio</span>
+            </div>
+          </section>
+
+          <div id="messageBox" class="message-box hidden"></div>
+
+          <section class="passeios-grid" id="passeiosGrid"></section>
+
+          <section class="panel empty-state hidden" id="emptyState">
+            <h2>Nenhum passeio encontrado</h2>
+            <p>Revise os filtros aplicados ou cadastre novos passeios.</p>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/parceiro/sidebar.js"></script>
+  <script src="../../js/parceiro/meus-passeios.js"></script>
+</body>
+</html>

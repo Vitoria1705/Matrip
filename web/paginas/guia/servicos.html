@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviços | Guia | Matrip</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../../css/guia/layout.css" />
+  <link rel="stylesheet" href="../../css/guia/sidebar.css" />
+  <link rel="stylesheet" href="../../css/guia/servicos.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <header class="partner-brandbar">
+      <div class="partner-brandbar__container">
+        <div class="partner-brandbar__brand">
+          <img
+            src="../../logo-matrip-oficial-01.png"
+            alt="Logo Matrip"
+            class="partner-brandbar__logo"
+          />
+          <span class="partner-brandbar__divider"></span>
+          <span class="partner-brandbar__slogan">Seu guia de experiências turísticas</span>
+        </div>
+
+        <div class="partner-brandbar__actions">
+          <span class="partner-brandbar__panel">Painel do Guia</span>
+          <button type="button" class="partner-brandbar__logout logout-btn">Sair</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-container">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+            &times;
+          </button>
+        </div>
+
+        <nav class="sidebar-menu">
+          <a href="index.html" class="menu-item">
+            <i class="fa-solid fa-house menu-icon"></i>
+            <span>Home</span>
+          </a>
+
+          <a href="meus-passeios.html" class="menu-item">
+            <i class="fa-solid fa-suitcase menu-icon"></i>
+            <span>Meus Passeios</span>
+          </a>
+
+          <a href="agenda.html" class="menu-item">
+            <i class="fa-regular fa-calendar-days menu-icon"></i>
+            <span>Agenda</span>
+          </a>
+
+          <a href="servicos.html" class="menu-item active">
+            <i class="fa-regular fa-file-lines menu-icon"></i>
+            <span>Serviços</span>
+          </a>
+
+          <a href="ganhos.html" class="menu-item">
+            <i class="fa-solid fa-wallet menu-icon"></i>
+            <span>Ganhos</span>
+          </a>
+
+          <a href="avaliacoes.html" class="menu-item">
+            <i class="fa-regular fa-star menu-icon"></i>
+            <span>Avaliações</span>
+          </a>
+
+          <a href="perfil.html" class="menu-item">
+            <i class="fa-regular fa-user menu-icon"></i>
+            <span>Perfil</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="partner-info">
+            <strong>Guia logado</strong>
+            <small id="sidebarGuideEmail">guia@matrip.com</small>
+          </div>
+
+          <button class="logout-btn" type="button">Sair</button>
+        </div>
+      </aside>
+
+      <div class="dashboard-main">
+        <header class="topbar">
+          <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="topbar-title">
+            <h1>Serviços</h1>
+            <p>Cadastre e acompanhe serviços extras vinculados aos seus passeios.</p>
+          </div>
+        </header>
+
+        <main class="content">
+          <section class="panel">
+            <div class="servicos-toolbar">
+              <div class="filters">
+                <div class="filter-group">
+                  <label for="filterPasseio">Passeio</label>
+                  <select id="filterPasseio">
+                    <option value="">Todos</option>
+                  </select>
+                </div>
+
+                <div class="filter-group">
+                  <label for="filterStatus">Status</label>
+                  <select id="filterStatus">
+                    <option value="">Todos</option>
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                  </select>
+                </div>
+
+                <div class="filter-group">
+                  <label for="searchServico">Buscar</label>
+                  <input type="text" id="searchServico" placeholder="Nome ou descrição" />
+                </div>
+              </div>
+
+              <button class="secondary-btn" id="clearFiltersBtn" type="button">Limpar filtros</button>
+            </div>
+          </section>
+
+          <section class="cards-grid servicos-metrics">
+            <div class="info-card">
+              <h3>Total de serviços</h3>
+              <p class="card-number" id="metricTotal">0</p>
+              <span>itens listados</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Ativos</h3>
+              <p class="card-number" id="metricAtivos">0</p>
+              <span>disponíveis</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Inativos</h3>
+              <p class="card-number" id="metricInativos">0</p>
+              <span>fora de uso</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Valor médio</h3>
+              <p class="card-number" id="metricMedia">R$ 0,00</p>
+              <span>preço médio</span>
+            </div>
+          </section>
+
+          <div id="messageBox" class="message-box hidden"></div>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Novo serviço</h2>
+            </div>
+
+            <form id="serviceForm" class="service-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="passeio_id">Passeio</label>
+                  <select id="passeio_id" required>
+                    <option value="">Selecione</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="nome">Nome do serviço</label>
+                  <input type="text" id="nome" maxlength="150" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="valor">Valor</label>
+                  <input type="number" id="valor" step="0.01" min="0" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <select id="status">
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="foto">Foto (URL ou nome do arquivo)</label>
+                  <input type="text" id="foto" placeholder="https://... ou nome-da-foto.jpg" />
+                </div>
+
+                <div class="form-group form-group-full">
+                  <label for="descricao">Descrição</label>
+                  <textarea id="descricao" rows="4" required></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button class="primary-btn" type="submit">Cadastrar serviço</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel">
+            <div class="table-wrapper">
+              <table class="services-table">
+                <thead>
+                  <tr>
+                    <th>Serviço</th>
+                    <th>Passeio</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                    <th>Foto</th>
+                  </tr>
+                </thead>
+                <tbody id="servicesTableBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel empty-state hidden" id="emptyState">
+            <h2>Nenhum serviço encontrado</h2>
+            <p>Revise os filtros ou cadastre um novo serviço.</p>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/guia/sidebar.js"></script>
+  <script src="../../js/guia/servicos.js"></script>
+</body>
+</html>

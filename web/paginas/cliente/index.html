@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Conta | Matrip</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../../css/cliente/index.css" />
+</head>
+<body>
+  <div class="cliente-page">
+    <!-- Topbar padrão da área do cliente -->
+    <header class="cliente-topbar">
+      <div class="cliente-topbar__container">
+        <a href="../../index.html" class="cliente-brand" aria-label="Voltar para a home da Matrip">
+          <img
+            src="../../logo-matrip-oficial-01.png"
+            alt="Logo Matrip"
+            class="cliente-brand__logo"
+          />
+
+          <span class="cliente-brand__divider"></span>
+          <span class="cliente-brand__slogan">Seu guia de experiências turísticas</span>
+        </a>
+
+        <div class="cliente-topbar__actions">
+          <button type="button" class="topbar-lang" aria-label="Idioma atual">
+            <img src="https://flagcdn.com/w40/br.png" alt="Português do Brasil" />
+          </button>
+
+          <span class="topbar-separator" aria-hidden="true"></span>
+
+          <!-- Navegação principal -->
+          <a href="index.html" class="topbar-account topbar-account--active">Início</a>
+          <a href="perfil.html" class="topbar-account">Perfil</a>
+          <a href="reservas.html" class="topbar-account">Reservas</a>
+          <a href="favoritos.html" class="topbar-account">Favoritos</a>
+          <a href="suporte.html" class="topbar-account">Suporte</a>
+
+          <!-- Encerramento da sessão local -->
+          <button type="button" class="topbar-account topbar-account--logout" id="btnLogout">
+            Sair
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="cliente-main">
+      <!-- Bloco inicial do painel -->
+      <section class="cliente-hero">
+        <div class="cliente-hero__content">
+          <div class="cliente-hero__badge">
+            <i class="fa-solid fa-sun"></i>
+            <span>Painel do cliente</span>
+          </div>
+
+          <h1 id="welcomeTitle">Bem-vindo(a) à sua área Matrip</h1>
+          <p id="welcomeText">
+            Acompanhe suas reservas, favoritos e próximos passeios em um só lugar.
+          </p>
+        </div>
+
+        <div class="cliente-hero__card">
+          <span class="hero-card__label">Próxima experiência</span>
+          <strong class="hero-card__title" id="nextExperienceTitle">Nenhuma reserva futura</strong>
+          <p class="hero-card__meta" id="nextExperienceMeta">Faça uma nova reserva para começar.</p>
+          <a href="../../index.html" class="hero-card__cta">Ver passeios</a>
+        </div>
+      </section>
+
+      <!-- Resumo rápido da conta -->
+      <section class="cliente-section">
+        <div class="section-heading">
+          <h2>Resumo da conta</h2>
+          <p>Visão rápida das suas atividades no Matrip.</p>
+        </div>
+
+        <div class="summary-grid" id="summaryGrid">
+          <article class="summary-card">
+            <div class="summary-card__icon">
+              <i class="fa-solid fa-ticket"></i>
+            </div>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Reservas</span>
+              <strong class="summary-card__number" id="totalReservas">0</strong>
+              <small class="summary-card__foot">total cadastradas</small>
+            </div>
+          </article>
+
+          <article class="summary-card">
+            <div class="summary-card__icon">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Confirmadas</span>
+              <strong class="summary-card__number" id="totalConfirmadas">0</strong>
+              <small class="summary-card__foot">prontas para acontecer</small>
+            </div>
+          </article>
+
+          <article class="summary-card">
+            <div class="summary-card__icon">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Favoritos</span>
+              <strong class="summary-card__number" id="totalFavoritos">0</strong>
+              <small class="summary-card__foot">experiências salvas</small>
+            </div>
+          </article>
+
+          <article class="summary-card">
+            <div class="summary-card__icon">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="summary-card__body">
+              <span class="summary-card__label">Pendentes</span>
+              <strong class="summary-card__number" id="totalPendentes">0</strong>
+              <small class="summary-card__foot">aguardando confirmação</small>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Área principal com atalhos e atividade recente -->
+      <section class="dashboard-grid">
+        <article class="dashboard-panel">
+          <div class="section-heading section-heading--small">
+            <h2>Ações rápidas</h2>
+            <p>Acesse as áreas mais importantes da sua conta.</p>
+          </div>
+
+          <div class="quick-actions">
+            <a href="reservas.html" class="quick-action-card">
+              <i class="fa-solid fa-ticket"></i>
+              <strong>Minhas reservas</strong>
+              <span>Consulte detalhes e acompanhe o status.</span>
+            </a>
+
+            <a href="../../index.html" class="quick-action-card">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <strong>Explorar passeios</strong>
+              <span>Descubra novas experiências turísticas.</span>
+            </a>
+
+            <a href="favoritos.html" class="quick-action-card">
+              <i class="fa-solid fa-heart"></i>
+              <strong>Favoritos</strong>
+              <span>Veja os passeios que você salvou.</span>
+            </a>
+
+            <a href="suporte.html" class="quick-action-card">
+              <i class="fa-solid fa-headset"></i>
+              <strong>Suporte</strong>
+              <span>Fale com a equipe da plataforma.</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="dashboard-panel">
+          <div class="section-heading section-heading--small">
+            <h2>Últimas reservas</h2>
+            <p>As movimentações recentes da sua conta.</p>
+          </div>
+
+          <!-- Lista montada via JS -->
+          <ul class="activity-list" id="activityList">
+            <!-- renderizado via js -->
+          </ul>
+        </article>
+      </section>
+
+      <!-- Próximas reservas -->
+      <section class="cliente-section">
+        <div class="section-heading">
+          <h2>Próximas experiências</h2>
+          <p>Reservas futuras com prioridade para acompanhamento rápido.</p>
+        </div>
+
+        <div class="booking-preview-grid" id="bookingPreviewGrid">
+          <!-- renderizado via js -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Ordem importante: dados compartilhados antes da lógica da página -->
+  <script src="../../js/cliente/cliente-data.js"></script>
+  <script src="../../js/cliente/index.js"></script>
+</body>
+</html>

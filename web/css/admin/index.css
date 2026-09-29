@@ -1,0 +1,477 @@
+body, input, select, textarea, button, h1, h2, h3, h4, h5, h6, p, td, th, strong, small {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+}
+
+
+/* Variáveis de Cores Exclusivas do Admin */
+:root {
+  /* Fundo da Sidebar vira Amarelo Escuro */
+  --color-sidebar: #CF8309; 
+  --color-sidebar-hover: #b06f07; /* Um tom um pouco mais escuro para o hover */
+  
+  /* Botões e Itens Ativos continuam Azul Escuro */
+  --color-primary: #023847; 
+  --color-primary-dark: #01242e; 
+}
+
+/* Ajustes de contraste (Texto Escuro no Fundo Claro) */
+.sidebar .brand-text h2,
+.sidebar .brand-text p,
+.sidebar .menu-item,
+.sidebar .partner-info strong,
+.sidebar .partner-info small {
+  color: #023847; 
+  font-weight: 700;
+}
+
+/* Ajuste de Hover e Item Ativo */
+.sidebar .menu-item:hover {
+  color: #ffffff;
+}
+
+.sidebar .menu-item.active {
+  color: #ffffff;
+}
+
+/* Botão de Sair em destaque */
+.sidebar .logout-btn {
+  background: #023847;
+  color: #ffffff;
+}
+
+.sidebar .logout-btn:hover {
+  background: #01242e;
+}
+
+/* Fundo branco para a caixinha da logo */
+.sidebar .brand-logo {
+  background-color: #ffffff;
+}
+
+/* ====== HEADER PRINCIPAL ADMIN (Baseado no V3) ====== */
+/* ================= HEADER (BARRA SUPERIOR) FIXO ================= */
+.admin-header {
+  background: #003543;
+  position: fixed !important; /* Crava o header no topo da tela */
+  top: 0 !important; 
+  left: 0 !important;
+  width: 100% !important; /* Garante que ele ocupe a tela toda de ponta a ponta */
+  z-index: 999 !important; /* Fica por cima de absolutamente TUDO */
+  padding: 10px 30px; 
+  box-sizing: border-box !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px !important; /* Fixa a altura dele em 100px para a matemática bater perfeita */
+}
+
+/* ================= EMPURRÃO NO CONTEÚDO ================= */
+/* Como o header agora "flutua", temos que empurrar o resto do site pra baixo */
+.dashboard-container {
+  padding-top: 100px !important; /* Exatamente a altura do header */
+}
+
+/* Logo + Slogan */
+.admin-header .logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.admin-header .logo img {
+  height: 80px;
+  display: block;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+  transition: transform 0.25s ease, filter 0.3s ease;
+}
+
+.admin-header .logo img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 10px rgba(0, 139, 121, 0.45));
+}
+
+.admin-header .slogan {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #F4C20D;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,0.15); /* Linha divisória sutil */
+  white-space: nowrap;
+}
+
+/* Área de ações (Direita) */
+.admin-header .actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.admin-header .lang img {
+  width: 26px;
+  height: 26px;
+  display: block;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+.admin-header .sep {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,.2);
+}
+
+.admin-header .account {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.admin-header .account .icon {
+  width: 24px; 
+  height: 24px;
+  fill: currentColor;
+}
+
+/* Ajuste do container abaixo da barra */
+.dashboard-container {
+  min-height: calc(100vh - 100px); 
+}
+
+/* ================= BARRA LATERAL ================= */
+
+/* 1. A Barra Lateral inteira */
+.sidebar {
+  position: fixed !important;
+  top: 100px !important; /* Começa logo abaixo do header escuro */
+  left: 0 !important;
+  width: 260px !important;
+  height: calc(100vh - 100px) !important; /* Altura da tela menos o header */
+  background-color: var(--color-sidebar) !important; /* Garante a cor no fundo todo */
+  z-index: 40 !important;
+  display: block !important; /* Tiramos o flexbox para não ter briga */
+}
+
+.sidebar-menu {
+  height: calc(100% - 220px) !important; 
+  overflow-y: auto !important; 
+}
+
+/* 3. O Rodapé (Botão Sair e Email) - SUBINDO NA MARRA */
+.sidebar-footer {
+  position: absolute !important;
+  bottom: 80px !important; 
+  left: 0 !important;
+  width: 100% !important;
+  height: 140px !important; /* Altura fixa para caber o texto e o botão */
+  padding: 20px !important;
+  background-color: var(--color-sidebar) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-sizing: border-box !important;
+}
+
+/* 4. O Espaço do conteúdo principal */
+.dashboard-main {
+  margin-left: 260px !important;
+  width: calc(100% - 260px) !important;
+}
+
+/* 5. Scrollbar bonita para o menu */
+.sidebar-menu::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-menu::-webkit-scrollbar-thumb {
+  background: rgba(0, 56, 71, 0.2); 
+  border-radius: 4px;
+}
+
+/* ================= ÍCONES DO MENU ================= */
+.sidebar .menu-item .material-symbols-outlined {
+  font-size: 22px; /* Tamanho ideal do ícone */
+  transition: color 0.2s;
+  color: inherit; 
+}
+
+.sidebar .menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   COMPONENTES GERAIS (SISTEMA ADMIN)
+   ========================================================================== */
+
+/* 1. BOTÕES PRINCIPAIS */
+.primary-btn {
+    background-color: #11c5b6;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color 0.2s;
+}
+.primary-btn:hover { background-color: #0fa99b; }
+
+.secondary-btn {
+    background-color: #ffffff;
+    color: #023847;
+    border: 1px solid #cbd5e1;
+    height: 45px;
+    padding: 0 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.secondary-btn:hover { background-color: #f1f5f9; }
+
+/* Botão com Ícone (Exportar, Novo Ticket, etc) */
+.btn-export {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 45px;
+    padding: 0 20px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #023847;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+.btn-export:hover {
+    background-color: #f8fafc;
+    border-color: #11c5b6;
+}
+.btn-export span { color: #11c5b6; font-size: 20px; }
+
+/* 2. ETIQUETAS DE STATUS (BADGES) */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.status-badge.ativo, .status-badge.active { background: #d1fae5; color: #047857; }
+.status-badge.pendente, .status-badge.pending { background: #fef3c7; color: #b45309; }
+.status-badge.bloqueado, .status-badge.blocked { background: #fee2e2; color: #b91c1c; }
+
+/* ==========================================================================
+   BARRA DE BUSCA E FILTROS (GLOBAL ADMIN)
+   ========================================================================== */
+.page-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.filters {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  flex: 1; 
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group.grow, .filter-search {
+  flex: 1; 
+  min-width: 300px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #023847;
+}
+
+.search-wrapper { 
+  display: flex; 
+  align-items: center; 
+  background: white; 
+  border: 1px solid #e5e7eb; 
+  border-radius: 12px; 
+  overflow: hidden; 
+  padding-left: 10px; 
+  height: 45px;
+  width: 100%;
+}
+
+.search-wrapper input { 
+  border: none; 
+  outline: none; 
+  flex: 1; 
+  background: transparent; 
+  height: 100%;
+}
+
+.search-btn { 
+  background-color: #023847; 
+  color: white; 
+  border: none; 
+  height: 45px; 
+  width: 50px; 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+.search-btn:hover { background-color: #0fa99b; }
+.search-btn span { font-size: 24px; font-weight: bold; }
+
+/* Select Padronizado com setinha personalizada */
+.filter-group select {
+  height: 45px;
+  padding: 0 40px 0 15px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  color: #023847;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23023847' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  transition: border-color 0.2s;
+}
+.filter-group select:focus { border-color: #11c5b6; }
+
+.action-buttons { display: flex; gap: 10px; }
+
+/* ==========================================================================
+   CARDS DE MÉTRICAS (GLOBAL ADMIN)
+   ========================================================================== */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+/* ==========================================================================
+   PADRONIZAÇÃO DA TOPBAR (CABEÇALHO DAS PÁGINAS)
+   ========================================================================== */
+.topbar {
+    display: flex;
+    align-items: center;
+    min-height: 90px; /* Força TODAS as barras a terem essa grossura mínima */
+    padding: 15px 30px; /* Dá um respiro padrão em cima e embaixo */
+    box-sizing: border-box;
+}
+
+/* Trava as margens dos títulos para não empurrarem a barra */
+.topbar-title h1 {
+    margin: 0 0 5px 0 !important; /* Zera em cima, deixa 5px embaixo */
+    font-size: 26px !important;
+    color: #023847;
+    line-height: 1.2;
+}
+
+.topbar-title p {
+    margin: 0 !important; /* Zera todas as margens do subtítulo */
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   CORREÇÃO DA SIDEBAR (Sobrescrevendo o CSS do Parceiro após o merge)
+   ========================================================================== */
+aside.sidebar {
+    display: flex !important; /* Força o flexbox que o parceiro tirou */
+    flex-direction: column !important; /* Coloca os itens em coluna */
+}
+
+/* O menu que tem os botões (Home, Usuários, etc) */
+aside.sidebar .sidebar-menu {
+    flex: 1 !important; /* Ocupa o espaço livre, mas permite que o scroll funcione */
+    height: 0 !important; /* Truque ninja do Flexbox para forçar a barra de rolagem a aparecer no lugar certo */
+    overflow-y: auto !important; /* Garante a rolagem */
+    margin-bottom: 0 !important; /* Tira a margem que estava cortando o texto */
+    padding-bottom: 20px !important; /* Dá o respiro por DENTRO do menu, logo abaixo de Configurações */
+}
+
+/* O rodapé com "Admin logado" e botão Sair */
+/* O rodapé com "Admin logado" e botão Sair */
+aside.sidebar .sidebar-footer {
+    position: static !important; 
+    margin-top: auto !important; 
+    height: auto !important; 
+    /* Reduzimos o padding embaixo para colar mais no final da tela */
+    padding: 20px 20px 10px 20px !important; 
+}
+
+/* Animação de entrada (Slide Down + Fade In) */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação de saída (Slide Up + Fade Out) */
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Classe que será aplicada ao formulário */
+.form-animado {
+    animation: slideDown 0.4s ease-out forwards;
+}
+
+.form-saindo {
+    animation: slideUp 0.3s ease-in forwards;
+}

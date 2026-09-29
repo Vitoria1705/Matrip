@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel do Guia | Matrip</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../../css/guia/layout.css" />
+  <link rel="stylesheet" href="../../css/guia/sidebar.css" />
+  <link rel="stylesheet" href="../../css/guia/home.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <header class="partner-brandbar">
+      <div class="partner-brandbar__container">
+        <div class="partner-brandbar__brand">
+          <img
+            src="../../logo-matrip-oficial-01.png"
+            alt="Logo Matrip"
+            class="partner-brandbar__logo"
+          />
+
+          <span class="partner-brandbar__divider"></span>
+
+          <span class="partner-brandbar__slogan">Seu guia de experiências turísticas</span>
+        </div>
+
+        <div class="partner-brandbar__actions">
+          <span class="partner-brandbar__panel">Painel do Guia</span>
+
+          <button type="button" class="partner-brandbar__logout logout-btn">
+            Sair
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-container">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+            &times;
+          </button>
+        </div>
+
+        <nav class="sidebar-menu">
+          <a href="index.html" class="menu-item active">
+            <i class="fa-solid fa-house menu-icon"></i>
+            <span>Home</span>
+          </a>
+
+          <a href="meus-passeios.html" class="menu-item">
+            <i class="fa-solid fa-suitcase menu-icon"></i>
+            <span>Meus Passeios</span>
+          </a>
+
+          <a href="agenda.html" class="menu-item">
+            <i class="fa-regular fa-calendar-days menu-icon"></i>
+            <span>Agenda</span>
+          </a>
+
+          <a href="servicos.html" class="menu-item">
+            <i class="fa-regular fa-file-lines menu-icon"></i>
+            <span>Serviços</span>
+          </a>
+
+          <a href="ganhos.html" class="menu-item">
+            <i class="fa-solid fa-wallet menu-icon"></i>
+            <span>Ganhos</span>
+          </a>
+
+          <a href="avaliacoes.html" class="menu-item">
+            <i class="fa-regular fa-star menu-icon"></i>
+            <span>Avaliações</span>
+          </a>
+
+          <a href="perfil.html" class="menu-item">
+            <i class="fa-regular fa-user menu-icon"></i>
+            <span>Perfil</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="partner-info">
+            <strong>Guia logado</strong>
+            <small id="sidebarGuideEmail">guia@matrip.com</small>
+          </div>
+
+          <button class="logout-btn" type="button">Sair</button>
+        </div>
+      </aside>
+
+      <div class="dashboard-main">
+        <header class="topbar">
+          <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="topbar-title">
+            <h1>Home do Guia</h1>
+            <p>Acompanhe seus passeios, agenda, serviços e desempenho.</p>
+          </div>
+        </header>
+
+        <main class="content">
+          <section class="cards-grid" id="metricsGrid">
+            <div class="info-card">
+              <h3>Meus Passeios</h3>
+              <p class="card-number" id="metricPasseios">0</p>
+              <span>passeios vinculados</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Serviços Ativos</h3>
+              <p class="card-number" id="metricServicos">0</p>
+              <span>itens cadastrados</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Agenda Próxima</h3>
+              <p class="card-number" id="metricAgenda">0</p>
+              <span>compromissos previstos</span>
+            </div>
+
+            <div class="info-card">
+              <h3>Avaliação Média</h3>
+              <p class="card-number" id="metricAvaliacao">0,0</p>
+              <span>média visual</span>
+            </div>
+          </section>
+
+          <section class="panel-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <h2>Atalhos rápidos</h2>
+              </div>
+
+              <div class="quick-actions">
+                <a href="meus-passeios.html" class="action-btn">Ver meus passeios</a>
+                <a href="agenda.html" class="action-btn">Abrir agenda</a>
+                <a href="servicos.html" class="action-btn">Gerenciar serviços</a>
+                <a href="perfil.html" class="action-btn">Editar perfil</a>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <h2>Últimas atualizações</h2>
+              </div>
+
+              <ul class="updates-list" id="updatesList">
+                <li>Carregando atualizações...</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="panel-grid panel-grid-bottom">
+            <div class="panel">
+              <div class="panel-header">
+                <h2>Próximos passeios</h2>
+              </div>
+
+              <div class="mini-list" id="nextTripsList">
+                <div class="mini-list-empty">Nenhum passeio encontrado.</div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <h2>Resumo do guia</h2>
+              </div>
+
+              <div class="summary-cards">
+                <div class="summary-mini-card">
+                  <span class="summary-label">Nome</span>
+                  <strong id="summaryGuideName">--</strong>
+                </div>
+
+                <div class="summary-mini-card">
+                  <span class="summary-label">E-mail</span>
+                  <strong id="summaryGuideEmail">--</strong>
+                </div>
+
+                <div class="summary-mini-card">
+                  <span class="summary-label">Tipo</span>
+                  <strong id="summaryGuideType">--</strong>
+                </div>
+
+                <div class="summary-mini-card">
+                  <span class="summary-label">ID do usuário</span>
+                  <strong id="summaryGuideUserId">--</strong>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Resumo operacional</h2>
+            </div>
+
+            <div class="summary-table-wrapper">
+              <table class="summary-table">
+                <thead>
+                  <tr>
+                    <th>Passeio</th>
+                    <th>Cidade</th>
+                    <th>Valor final</th>
+                    <th>ID</th>
+                  </tr>
+                </thead>
+                <tbody id="summaryTableBody">
+                  <tr>
+                    <td colspan="4">Carregando dados...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/guia/sidebar.js"></script>
+  <script src="../../js/guia/home.js"></script>
+</body>
+</html>

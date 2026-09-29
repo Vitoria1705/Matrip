@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Perfil | Matrip</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../../css/cliente/perfil.css" />
+</head>
+<body>
+  <div class="cliente-page">
+    <!-- Topbar padrão da área do cliente -->
+    <header class="cliente-topbar">
+      <div class="cliente-topbar__container">
+        <a href="../../index.html" class="cliente-brand" aria-label="Voltar para a home da Matrip">
+          <img
+            src="../../logo-matrip-oficial-01.png"
+            alt="Logo Matrip"
+            class="cliente-brand__logo"
+          />
+
+          <span class="cliente-brand__divider"></span>
+          <span class="cliente-brand__slogan">Seu guia de experiências turísticas</span>
+        </a>
+
+        <div class="cliente-topbar__actions">
+          <button type="button" class="topbar-lang" aria-label="Idioma atual">
+            <img src="https://flagcdn.com/w40/br.png" alt="Português do Brasil" />
+          </button>
+
+          <span class="topbar-separator" aria-hidden="true"></span>
+
+          <!-- Navegação principal -->
+          <a href="index.html" class="topbar-account">Início</a>
+          <a href="perfil.html" class="topbar-account topbar-account--active">Perfil</a>
+          <a href="reservas.html" class="topbar-account">Reservas</a>
+          <a href="favoritos.html" class="topbar-account">Favoritos</a>
+          <a href="suporte.html" class="topbar-account">Suporte</a>
+
+          <!-- Encerramento da sessão local -->
+          <button type="button" class="topbar-account topbar-account--logout" id="btnLogout">
+            Sair
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="cliente-main">
+      <!-- Cabeçalho da página -->
+      <section class="perfil-hero">
+        <div class="perfil-hero__content">
+          <div class="perfil-hero__badge">
+            <i class="fa-solid fa-user"></i>
+            <span>Área do cliente</span>
+          </div>
+
+          <h1>Meu perfil</h1>
+          <p>
+            Consulte os dados da sua conta e mantenha suas informações organizadas
+            para acompanhar suas experiências na plataforma.
+          </p>
+        </div>
+      </section>
+
+      <section class="perfil-layout">
+        <!-- Resumo principal do usuário -->
+        <article class="perfil-card perfil-card--resume">
+          <div class="perfil-resume">
+            <div class="perfil-avatar" id="perfilAvatar">U</div>
+
+            <div class="perfil-resume__body">
+              <h2 id="perfilNome">Usuário</h2>
+              <p id="perfilEmail">email@matrip.com</p>
+
+              <div class="perfil-badges">
+                <span class="perfil-badge" id="perfilTipo">usuário</span>
+                <span class="perfil-badge perfil-badge--secondary" id="perfilProvider">login local</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dados do cadastro -->
+        <article class="perfil-card">
+          <div class="section-heading">
+            <h2>Dados da conta</h2>
+            <p>Informações principais do cadastro atual.</p>
+          </div>
+
+          <div class="info-list">
+            <div class="info-row">
+              <span>Nome</span>
+              <strong id="infoNome">-</strong>
+            </div>
+
+            <div class="info-row">
+              <span>E-mail</span>
+              <strong id="infoEmail">-</strong>
+            </div>
+
+            <div class="info-row">
+              <span>Tipo de usuário</span>
+              <strong id="infoTipo">-</strong>
+            </div>
+
+            <div class="info-row">
+              <span>Provedor</span>
+              <strong id="infoProvider">-</strong>
+            </div>
+
+            <div class="info-row">
+              <span>ID do provedor</span>
+              <strong id="infoProviderId">-</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- Indicadores rápidos -->
+        <article class="perfil-card">
+          <div class="section-heading">
+            <h2>Resumo da conta</h2>
+            <p>Visão rápida da sua atividade no Matrip.</p>
+          </div>
+
+          <div class="perfil-stats">
+            <div class="perfil-stat">
+              <small>Reservas</small>
+              <strong id="statReservas">00</strong>
+            </div>
+
+            <div class="perfil-stat">
+              <small>Confirmadas</small>
+              <strong id="statConfirmadas">00</strong>
+            </div>
+
+            <div class="perfil-stat">
+              <small>Favoritos</small>
+              <strong id="statFavoritos">00</strong>
+            </div>
+
+            <div class="perfil-stat">
+              <small>Pagamentos aprovados</small>
+              <strong id="statPagamentos">00</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- Ações rápidas -->
+        <article class="perfil-card">
+          <div class="section-heading">
+            <h2>Ações rápidas</h2>
+            <p>Acesse as áreas principais da sua conta.</p>
+          </div>
+
+          <div class="perfil-actions">
+            <a href="reservas.html" class="btn-action btn-action--secondary">Minhas reservas</a>
+            <a href="favoritos.html" class="btn-action btn-action--secondary">Favoritos</a>
+            <a href="suporte.html" class="btn-action btn-action--secondary">Suporte</a>
+            <a href="../../index.html" class="btn-action btn-action--primary">Explorar passeios</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <!-- Ordem importante: dados compartilhados antes da lógica da página -->
+  <script src="../../js/cliente/cliente-data.js"></script>
+  <script src="../../js/cliente/perfil.js"></script>
+</body>
+</html>

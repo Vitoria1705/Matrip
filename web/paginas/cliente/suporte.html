@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suporte | Matrip</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../../css/cliente/suporte.css" />
+</head>
+<body>
+  <div class="cliente-page">
+    <!-- Topbar padrão da área do cliente -->
+    <header class="cliente-topbar">
+      <div class="cliente-topbar__container">
+        <a href="../../index.html" class="cliente-brand" aria-label="Voltar para a home da Matrip">
+          <img
+            src="../../logo-matrip-oficial-01.png"
+            alt="Logo Matrip"
+            class="cliente-brand__logo"
+          />
+
+          <span class="cliente-brand__divider"></span>
+          <span class="cliente-brand__slogan">Seu guia de experiências turísticas</span>
+        </a>
+
+        <div class="cliente-topbar__actions">
+          <button type="button" class="topbar-lang" aria-label="Idioma atual">
+            <img src="https://flagcdn.com/w40/br.png" alt="Português do Brasil" />
+          </button>
+
+          <span class="topbar-separator" aria-hidden="true"></span>
+
+          <!-- Navegação principal -->
+          <a href="index.html" class="topbar-account">Início</a>
+          <a href="perfil.html" class="topbar-account">Perfil</a>
+          <a href="reservas.html" class="topbar-account">Reservas</a>
+          <a href="favoritos.html" class="topbar-account">Favoritos</a>
+          <a href="suporte.html" class="topbar-account topbar-account--active">Suporte</a>
+
+          <!-- Encerramento da sessão local -->
+          <button type="button" class="topbar-account topbar-account--logout" id="btnLogout">
+            Sair
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="cliente-main">
+      <!-- Cabeçalho da página -->
+      <section class="suporte-hero">
+        <div class="suporte-hero__content">
+          <div class="suporte-hero__badge">
+            <i class="fa-solid fa-headset"></i>
+            <span>Área do cliente</span>
+          </div>
+
+          <h1>Suporte</h1>
+          <p>
+            Envie sua dúvida, relate um problema ou solicite ajuda sobre reservas,
+            pagamentos e passeios da plataforma.
+          </p>
+        </div>
+      </section>
+
+      <section class="suporte-layout">
+        <!-- Formulário principal -->
+        <article class="suporte-card suporte-card--form">
+          <div class="section-heading">
+            <h2>Fale com a equipe</h2>
+            <p>Preencha os dados abaixo para registrar seu atendimento.</p>
+          </div>
+
+          <form id="formSuporte" class="suporte-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nomeSuporte">Nome</label>
+                <input type="text" id="nomeSuporte" name="nome" placeholder="Seu nome" />
+              </div>
+
+              <div class="form-group">
+                <label for="emailSuporte">E-mail</label>
+                <input type="email" id="emailSuporte" name="email" placeholder="seuemail@exemplo.com" />
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="tipoSolicitacao">Assunto</label>
+                <select id="tipoSolicitacao" name="assunto">
+                  <option value="">Selecione</option>
+                  <option value="reserva">Dúvida sobre reserva</option>
+                  <option value="pagamento">Dúvida sobre pagamento</option>
+                  <option value="passeio">Informações sobre passeio</option>
+                  <option value="cancelamento">Cancelamento</option>
+                  <option value="outro">Outro assunto</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="idReservaSuporte">ID da reserva</label>
+                <input type="text" id="idReservaSuporte" name="idReserva" placeholder="Opcional" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="mensagemSuporte">Mensagem</label>
+              <textarea
+                id="mensagemSuporte"
+                name="mensagem"
+                rows="6"
+                placeholder="Descreva sua dúvida ou problema"
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-action btn-action--secondary" id="btnLimparFormulario">
+                Limpar
+              </button>
+
+              <button type="submit" class="btn-action btn-action--primary">
+                Enviar solicitação
+              </button>
+            </div>
+          </form>
+
+          <!-- Retorno visual do formulário -->
+          <div class="message-box hidden" id="messageBox"></div>
+        </article>
+
+        <!-- Informações auxiliares -->
+        <aside class="suporte-sidebar">
+          <article class="suporte-card">
+            <div class="section-heading">
+              <h2>Canais de atendimento</h2>
+            </div>
+
+            <div class="canal-list">
+              <div class="canal-item">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                  <small>E-mail</small>
+                  <strong>suporte@matrip.com</strong>
+                </div>
+              </div>
+
+              <div class="canal-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <small>Telefone</small>
+                  <strong>(99) 0000-0000</strong>
+                </div>
+              </div>
+
+              <div class="canal-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div>
+                  <small>WhatsApp</small>
+                  <strong>(99) 00000-0000</strong>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="suporte-card">
+            <div class="section-heading">
+              <h2>Dicas antes de enviar</h2>
+            </div>
+
+            <ul class="dicas-list">
+              <li>Informe o ID da reserva quando a solicitação estiver ligada a uma compra.</li>
+              <li>Descreva o problema com objetividade para agilizar o atendimento.</li>
+              <li>Em casos de pagamento, inclua a forma utilizada e a data da tentativa.</li>
+            </ul>
+          </article>
+
+          <article class="suporte-card">
+            <div class="section-heading">
+              <h2>Status rápido</h2>
+            </div>
+
+            <div class="status-boxes">
+              <div class="status-box">
+                <small>Reservas</small>
+                <strong id="statReservas">00</strong>
+              </div>
+
+              <div class="status-box">
+                <small>Pendentes</small>
+                <strong id="statPendentes">00</strong>
+              </div>
+
+              <div class="status-box">
+                <small>Pagamentos pendentes</small>
+                <strong id="statPagamentosPendentes">00</strong>
+              </div>
+            </div>
+          </article>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <!-- Ordem importante: dados compartilhados antes da lógica da página -->
+  <script src="../../js/cliente/cliente-data.js"></script>
+  <script src="../../js/cliente/suporte.js"></script>
+</body>
+</html>

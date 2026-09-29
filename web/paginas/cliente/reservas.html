@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minhas Reservas | Matrip</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../../css/cliente/reservas.css" />
+</head>
+<body>
+  <div class="cliente-page">
+    <!-- Topbar padrão da área do cliente -->
+    <header class="cliente-topbar">
+      <div class="cliente-topbar__container">
+        <a href="../../index.html" class="cliente-brand" aria-label="Voltar para a home da Matrip">
+          <img
+            src="../../logo-matrip-oficial-01.png"
+            alt="Logo Matrip"
+            class="cliente-brand__logo"
+          />
+
+          <span class="cliente-brand__divider"></span>
+          <span class="cliente-brand__slogan">Seu guia de experiências turísticas</span>
+        </a>
+
+        <div class="cliente-topbar__actions">
+          <button type="button" class="topbar-lang" aria-label="Idioma atual">
+            <img src="https://flagcdn.com/w40/br.png" alt="Português do Brasil" />
+          </button>
+
+          <span class="topbar-separator" aria-hidden="true"></span>
+
+          <!-- Navegação principal -->
+          <a href="index.html" class="topbar-account">Início</a>
+          <a href="perfil.html" class="topbar-account">Perfil</a>
+          <a href="reservas.html" class="topbar-account topbar-account--active">Reservas</a>
+          <a href="favoritos.html" class="topbar-account">Favoritos</a>
+          <a href="suporte.html" class="topbar-account">Suporte</a>
+
+          <!-- Encerramento da sessão local -->
+          <button type="button" class="topbar-account topbar-account--logout" id="btnLogout">
+            Sair
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="cliente-main">
+      <!-- Cabeçalho da página -->
+      <section class="reservas-hero">
+        <div class="reservas-hero__content">
+          <div class="reservas-hero__badge">
+            <i class="fa-solid fa-ticket"></i>
+            <span>Área do cliente</span>
+          </div>
+
+          <h1>Minhas reservas</h1>
+          <p>
+            Consulte suas reservas, acompanhe o status de cada experiência e acesse
+            rapidamente os próximos passeios.
+          </p>
+        </div>
+      </section>
+
+      <!-- Barra de filtros -->
+      <section class="reservas-toolbar">
+        <div class="filtro-grupo filtro-grupo--busca">
+          <label for="buscaReserva">Buscar</label>
+          <div class="campo-busca">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="buscaReserva"
+              placeholder="Nome do passeio, cidade ou descrição"
+            />
+          </div>
+        </div>
+
+        <div class="filtro-grupo">
+          <label for="filtroStatus">Status</label>
+          <select id="filtroStatus">
+            <option value="todos">Todos</option>
+            <option value="confirmada">Confirmadas</option>
+            <option value="pendente">Pendentes</option>
+            <option value="cancelada">Canceladas</option>
+          </select>
+        </div>
+
+        <div class="filtro-acoes">
+          <button type="button" class="btn-toolbar btn-toolbar--secondary" id="btnLimparFiltros">
+            Limpar filtros
+          </button>
+
+          <a href="../../index.html" class="btn-toolbar btn-toolbar--primary">
+            Explorar passeios
+          </a>
+        </div>
+      </section>
+
+      <!-- Resumo rápido da listagem atual -->
+      <section class="reservas-summary">
+        <article class="summary-card">
+          <span class="summary-card__label">Total</span>
+          <strong class="summary-card__number" id="totalReservas">0</strong>
+          <small class="summary-card__foot">reservas encontradas</small>
+        </article>
+
+        <article class="summary-card">
+          <span class="summary-card__label">Confirmadas</span>
+          <strong class="summary-card__number" id="totalConfirmadas">0</strong>
+          <small class="summary-card__foot">prontas para acontecer</small>
+        </article>
+
+        <article class="summary-card">
+          <span class="summary-card__label">Pendentes</span>
+          <strong class="summary-card__number" id="totalPendentes">0</strong>
+          <small class="summary-card__foot">aguardando confirmação</small>
+        </article>
+
+        <article class="summary-card">
+          <span class="summary-card__label">Canceladas</span>
+          <strong class="summary-card__number" id="totalCanceladas">0</strong>
+          <small class="summary-card__foot">reservas encerradas</small>
+        </article>
+      </section>
+
+      <!-- Lista principal -->
+      <section class="reservas-lista-section">
+        <div class="section-heading">
+          <h2>Reservas cadastradas</h2>
+          <p id="resultadoTexto">Visualize todas as reservas disponíveis na sua conta.</p>
+        </div>
+
+        <!-- Cards montados via JS -->
+        <div class="reservas-grid" id="reservasGrid"></div>
+
+        <!-- Estado vazio -->
+        <div class="empty-state hidden" id="emptyState">
+          <div class="empty-state__icon">
+            <i class="fa-solid fa-suitcase-rolling"></i>
+          </div>
+          <h3>Nenhuma reserva encontrada</h3>
+          <p>Tente ajustar os filtros ou explore novos passeios na plataforma.</p>
+          <a href="../../index.html" class="btn-toolbar btn-toolbar--primary">Ver passeios</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Ordem importante: dados compartilhados antes da lógica da página -->
+  <script src="../../js/cliente/cliente-data.js"></script>
+  <script src="../../js/cliente/reservas.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favoritos | Matrip</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../../css/cliente/favoritos.css" />
+</head>
+<body>
+  <div class="cliente-page">
+    <!-- Topbar padrão da área do cliente -->
+    <header class="cliente-topbar">
+      <div class="cliente-topbar__container">
+        <a href="../../index.html" class="cliente-brand" aria-label="Voltar para a home da Matrip">
+          <img
+            src="../../logo-matrip-oficial-01.png"
+            alt="Logo Matrip"
+            class="cliente-brand__logo"
+          />
+
+          <span class="cliente-brand__divider"></span>
+          <span class="cliente-brand__slogan">Seu guia de experiências turísticas</span>
+        </a>
+
+        <div class="cliente-topbar__actions">
+          <button type="button" class="topbar-lang" aria-label="Idioma atual">
+            <img src="https://flagcdn.com/w40/br.png" alt="Português do Brasil" />
+          </button>
+
+          <span class="topbar-separator" aria-hidden="true"></span>
+
+          <!-- Navegação principal -->
+          <a href="index.html" class="topbar-account">Início</a>
+          <a href="perfil.html" class="topbar-account">Perfil</a>
+          <a href="reservas.html" class="topbar-account">Reservas</a>
+          <a href="favoritos.html" class="topbar-account topbar-account--active">Favoritos</a>
+          <a href="suporte.html" class="topbar-account">Suporte</a>
+
+          <!-- Encerramento da sessão local -->
+          <button type="button" class="topbar-account topbar-account--logout" id="btnLogout">
+            Sair
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="cliente-main">
+      <!-- Cabeçalho da página -->
+      <section class="favoritos-hero">
+        <div class="favoritos-hero__content">
+          <div class="favoritos-hero__badge">
+            <i class="fa-solid fa-heart"></i>
+            <span>Área do cliente</span>
+          </div>
+
+          <h1>Meus favoritos</h1>
+          <p>
+            Veja os passeios que você salvou para consultar depois e retome
+            facilmente as experiências que despertaram seu interesse.
+          </p>
+        </div>
+      </section>
+
+      <!-- Busca principal -->
+      <section class="favoritos-toolbar">
+        <div class="filtro-grupo filtro-grupo--busca">
+          <label for="buscaFavorito">Buscar</label>
+          <div class="campo-busca">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="buscaFavorito"
+              placeholder="Nome, cidade, estado ou categoria"
+            />
+          </div>
+        </div>
+
+        <div class="filtro-acoes">
+          <button type="button" class="btn-toolbar btn-toolbar--secondary" id="btnLimparBusca">
+            Limpar busca
+          </button>
+
+          <a href="../../index.html" class="btn-toolbar btn-toolbar--primary">
+            Explorar passeios
+          </a>
+        </div>
+      </section>
+
+      <!-- Resumo rápido -->
+      <section class="favoritos-summary">
+        <article class="summary-card">
+          <span class="summary-card__label">Total</span>
+          <strong class="summary-card__number" id="totalFavoritos">0</strong>
+          <small class="summary-card__foot">passeios salvos</small>
+        </article>
+      </section>
+
+      <!-- Lista principal -->
+      <section class="favoritos-lista-section">
+        <div class="section-heading">
+          <h2>Passeios salvos</h2>
+          <p id="resultadoTexto">Consulte e retome os passeios que você marcou como favoritos.</p>
+        </div>
+
+        <!-- Cards montados via JS -->
+        <div class="favoritos-grid" id="favoritosGrid"></div>
+
+        <!-- Estado vazio -->
+        <div class="empty-state hidden" id="emptyState">
+          <div class="empty-state__icon">
+            <i class="fa-solid fa-heart-circle-xmark"></i>
+          </div>
+          <h3>Nenhum favorito encontrado</h3>
+          <p>Tente ajustar a busca ou explore novos passeios na plataforma.</p>
+          <a href="../../index.html" class="btn-toolbar btn-toolbar--primary">Ver passeios</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Ordem importante: dados compartilhados antes da lógica da página -->
+  <script src="../../js/cliente/cliente-data.js"></script>
+  <script src="../../js/cliente/favoritos.js"></script>
+</body>
+</html>

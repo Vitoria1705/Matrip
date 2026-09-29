@@ -1,0 +1,135 @@
+.agenda-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 280px;
+  flex: 1;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.filter-group input {
+  height: 46px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0 14px;
+  font-size: 15px;
+  outline: none;
+  background: #fff;
+}
+
+.filter-group input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(17, 197, 182, 0.12);
+}
+
+.secondary-btn {
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.message-box {
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin: 24px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.message-box.error {
+  background: rgba(217, 83, 79, 0.12);
+  color: #b13834;
+  border: 1px solid rgba(217, 83, 79, 0.2);
+}
+
+.hidden {
+  display: none;
+}
+
+.agenda-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.agenda-card {
+  background: var(--color-surface);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid #edf2f4;
+}
+
+.agenda-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.agenda-location {
+  color: var(--color-text-soft);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.agenda-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.meta-box {
+  background: #f8fafb;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.meta-box span {
+  display: block;
+  font-size: 12px;
+  color: var(--color-text-soft);
+  margin-bottom: 6px;
+}
+
+.meta-box strong {
+  font-size: 14px;
+}
+
+.empty-state {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.empty-state p {
+  color: var(--color-text-soft);
+}
+
+@media (max-width: 768px) {
+  .agenda-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda-meta {
+    grid-template-columns: 1fr;
+  }
+}

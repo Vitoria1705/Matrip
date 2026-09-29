@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil | Guia | Matrip</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../../css/guia/layout.css" />
+  <link rel="stylesheet" href="../../css/guia/sidebar.css" />
+  <link rel="stylesheet" href="../../css/guia/perfil.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <header class="partner-brandbar">
+      <div class="partner-brandbar__container">
+        <div class="partner-brandbar__brand">
+          <img
+            src="../../logo-matrip-oficial-01.png"
+            alt="Logo Matrip"
+            class="partner-brandbar__logo"
+          />
+          <span class="partner-brandbar__divider"></span>
+          <span class="partner-brandbar__slogan">Seu guia de experiências turísticas</span>
+        </div>
+
+        <div class="partner-brandbar__actions">
+          <span class="partner-brandbar__panel">Painel do Guia</span>
+          <button type="button" class="partner-brandbar__logout logout-btn">Sair</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-container">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+            &times;
+          </button>
+        </div>
+
+        <nav class="sidebar-menu">
+          <a href="index.html" class="menu-item">
+            <i class="fa-solid fa-house menu-icon"></i>
+            <span>Home</span>
+          </a>
+
+          <a href="meus-passeios.html" class="menu-item">
+            <i class="fa-solid fa-suitcase menu-icon"></i>
+            <span>Meus Passeios</span>
+          </a>
+
+          <a href="agenda.html" class="menu-item">
+            <i class="fa-regular fa-calendar-days menu-icon"></i>
+            <span>Agenda</span>
+          </a>
+
+          <a href="servicos.html" class="menu-item">
+            <i class="fa-regular fa-file-lines menu-icon"></i>
+            <span>Serviços</span>
+          </a>
+
+          <a href="ganhos.html" class="menu-item">
+            <i class="fa-solid fa-wallet menu-icon"></i>
+            <span>Ganhos</span>
+          </a>
+
+          <a href="avaliacoes.html" class="menu-item">
+            <i class="fa-regular fa-star menu-icon"></i>
+            <span>Avaliações</span>
+          </a>
+
+          <a href="perfil.html" class="menu-item active">
+            <i class="fa-regular fa-user menu-icon"></i>
+            <span>Perfil</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="partner-info">
+            <strong>Guia logado</strong>
+            <small id="sidebarGuideEmail">guia@matrip.com</small>
+          </div>
+
+          <button class="logout-btn" id="logoutBtn" type="button">Sair</button>
+        </div>
+      </aside>
+
+      <div class="dashboard-main">
+        <header class="topbar">
+          <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="topbar-title">
+            <h1>Perfil</h1>
+            <p>Visualize e atualize as informações do guia logado.</p>
+          </div>
+        </header>
+
+        <main class="content">
+          <section class="profile-page">
+            <div class="profile-header-card">
+              <div class="profile-avatar" id="profileAvatar">G</div>
+
+              <div class="profile-header-info">
+                <h2 id="profileDisplayName">Guia</h2>
+                <p id="profileDisplayEmail">email@matrip.com</p>
+
+                <div class="profile-badges">
+                  <span class="profile-badge" id="profileTipoBadge">guia</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="messageBox" class="message-box hidden"></div>
+
+            <section class="panel">
+              <div class="panel-header panel-header-space">
+                <h2>Dados do perfil</h2>
+                <button class="primary-btn" id="saveProfileBtn" type="button">Salvar alterações</button>
+              </div>
+
+              <form id="profileForm" class="profile-form">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tipo">Tipo de usuário</label>
+                    <input type="text" id="tipo" name="tipo" disabled />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="usuarioId">ID do usuário</label>
+                    <input type="text" id="usuarioId" name="usuarioId" disabled />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="celular">Celular</label>
+                    <input type="text" id="celular" name="celular" placeholder="(99) 99999-9999" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="mei">MEI</label>
+                    <input type="text" id="mei" name="mei" placeholder="Digite o MEI" />
+                  </div>
+
+                  <div class="form-group form-group-full">
+                    <label for="bio">Observações</label>
+                    <textarea id="bio" name="bio" rows="4" placeholder="Escreva uma observação de perfil..."></textarea>
+                  </div>
+                </div>
+              </form>
+            </section>
+
+            <section class="profile-summary-grid">
+              <div class="summary-card">
+                <span class="summary-label">Usuário logado</span>
+                <strong id="summaryNome">--</strong>
+              </div>
+
+              <div class="summary-card">
+                <span class="summary-label">Contato</span>
+                <strong id="summaryEmail">--</strong>
+              </div>
+
+              <div class="summary-card">
+                <span class="summary-label">Perfil de acesso</span>
+                <strong id="summaryTipo">--</strong>
+              </div>
+
+              <div class="summary-card">
+                <span class="summary-label">Identificador</span>
+                <strong id="summaryId">--</strong>
+              </div>
+
+              <div class="summary-card">
+                <span class="summary-label">Celular</span>
+                <strong id="summaryCelular">--</strong>
+              </div>
+
+              <div class="summary-card">
+                <span class="summary-label">MEI</span>
+                <strong id="summaryMei">--</strong>
+              </div>
+            </section>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/guia/sidebar.js"></script>
+  <script src="../../js/guia/perfil.js"></script>
+</body>
+</html>

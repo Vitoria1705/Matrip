@@ -1,0 +1,132 @@
+.sidebar {
+  width: var(--sidebar-width) !important;
+  height: calc(100vh - var(--brandbar-height)) !important;
+  background: var(--color-sidebar);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 18px;
+  position: fixed !important;
+  top: var(--brandbar-height) !important;
+  align-self: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  left: 0 !important;
+}
+
+/* topo da sidebar */
+.sidebar-top {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.sidebar-close {
+  display: none;
+  margin-top: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* navegação ocupa o espaço central */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 14px;
+  border-radius: 14px;
+  color: #e9f7fa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.menu-item:hover {
+  background: var(--color-sidebar-hover);
+}
+
+.menu-item.active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.menu-icon {
+  width: 18px;
+  min-width: 18px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* rodapé sempre fica no final da barra lateral */
+.sidebar-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 18px;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+.partner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.partner-info strong {
+  font-size: 14px;
+}
+
+.partner-info small {
+  color: #cde7eb;
+  word-break: break-word;
+}
+
+.logout-btn {
+  width: 100%;
+  border: none;
+  background: #ffffff;
+  color: var(--color-sidebar);
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #eaf7f9;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    top: var(--brandbar-height);
+    z-index: 999;
+    width: 280px;
+    height: calc(100vh - var(--brandbar-height));
+    transition: left 0.25s ease;
+    align-self: auto;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-close {
+    display: inline-block;
+  }
+}

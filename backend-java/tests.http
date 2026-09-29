@@ -1,0 +1,53 @@
+### Listar Usuários
+GET http://localhost:3000/usuarios
+Accept: application/json
+
+### Listar Categorias
+GET http://localhost:3000/categorias
+Accept: application/json
+
+### Listar Passeios (Resumo)
+GET http://localhost:3000/passeios
+Accept: application/json
+
+### Listar Passeios Home
+GET http://localhost:3000/home/passeios
+Accept: application/json
+
+### Filtrar Passeios por Estado e Cidade
+GET http://localhost:3000/api/passeios?estado=MA&cidade=São%20Luís
+Accept: application/json
+
+### Simular Recuperação de Senha
+POST http://localhost:3000/api/recuperar-senha
+Content-Type: application/json
+
+{
+  "email": "sheila@email.com"
+}
+
+### Testar Login (Sucesso)
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "sheila@email.com",
+  "password": "123"
+}
+
+### Testar Login (Falha)
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "sheila@email.com",
+  "password": "senha-errada"
+}
+
+### Cadastrar Categoria
+POST http://localhost:3000/categorias
+Content-Type: application/json
+
+{
+  "nome": "Ecoturismo"
+}

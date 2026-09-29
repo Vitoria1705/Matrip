@@ -1,0 +1,196 @@
+/* css/admin/form-cadastros.css */
+
+/* =========================================
+   CONTAINER E CABEÇALHOS
+   ========================================= */
+.panel {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.panel-header h2 {
+    margin: 0 0 25px 0;
+    color: #023847;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* =========================================
+   NAVEGAÇÃO DO TOPO (BOTÃO VOLTAR)
+   ========================================= */
+.topbar-navigation {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* ❌ Apague o padding-top e padding-bottom que estavam aqui! */
+}
+
+.back-button-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f1f3f5;
+    color: #11c5b6;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.back-button-circle:hover {
+    background-color: #11c5b6;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.back-button-circle span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.topbar-title h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* =========================================
+   ESTILOS DO FORMULÁRIO (GRID E INPUTS)
+   ========================================= */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 700;
+    font-size: 14px;
+    color: #023847;
+}
+
+/* Campos de entrada padrão */
+.form-group input,
+.form-group select {
+    height: 46px;
+    padding: 0 15px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    color: #023847;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Campo de texto grande (Descrição) */
+.form-group textarea {
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    color: #023847;
+    outline: none;
+    resize: vertical;
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+}
+
+/* Efeito ao clicar no campo (Focus) */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #11c5b6;
+    box-shadow: 0 0 0 3px rgba(17, 197, 182, 0.15);
+}
+
+/* Área inferior com os botões Salvar/Cancelar */
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+/* =========================================
+   ACCORDION (SANFONA)
+   ========================================= */
+.panel:has(.accordion-header) {
+    padding: 10px 25px !important; 
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.accordion-header h2 {
+    margin: 0;
+    color: #023847;
+}
+
+.accordion-header .arrow {
+    transition: transform 0.3s ease;
+    color: #11c5b6;
+    font-size: 24px;
+}
+
+.accordion-header.active .arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    /* REMOVE O display: none; */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+    padding: 0 20px;
+    border-top: 1px solid transparent; /* Bordas transparentes enquanto fechado */
+}
+
+.accordion-content.show {
+    /* O display continua sendo flex ou block nativo, a gente só muda a altura! */
+    max-height: 800px;
+    padding: 20px;
+    border-top: 1px solid #f1f5f9;
+    margin-top: 10px;
+}
+
+/* =========================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================= */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-group[style*="grid-column: span 2"] {
+        grid-column: span 1 !important;
+    }
+}
